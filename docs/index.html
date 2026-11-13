@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Judgement Deck — 50 cards for using and delivering AI with judgement</title>
+<meta name="description" content="A free deck of 50 small moves for using and delivering AI with judgement. Print it, cut it, use it at your desk.">
+<style>
+@font-face{font-family:'Domine';src:url('deck/fonts/Domine.ttf')}
+@font-face{font-family:'Funnel Sans';src:url('deck/fonts/FunnelSans.ttf')}
+@font-face{font-family:'Funnel Sans';src:url('deck/fonts/FunnelSans-Italic.ttf');font-style:italic}
+@font-face{font-family:'Nanum Gothic Coding';src:url('deck/fonts/NanumGothicCoding-Regular.ttf')}
+@font-face{font-family:'Nanum Gothic Coding';src:url('deck/fonts/NanumGothicCoding-Bold.ttf');font-weight:700}
+:root{--night:#0A0C10;--ink:#16181D;--dim:#B9BCC4;--faint:#8A8E96;--gold:#E8B54D;--paper:#F4F2EC;
+--judge:#B8842A;--brief:#1F8A70;--check:#C4503A;--deliver:#3E66B8;--practise:#3E9A6C;
+--serif:'Domine',Georgia,serif;--sans:'Funnel Sans','Avenir Next',sans-serif;--mono:'Nanum Gothic Coding',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.55}
+h1,h2,h3{font-family:var(--serif);line-height:1.15}
+.kicker{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.kicker::before{content:"";display:inline-block;width:26px;height:2px;background:var(--gold);margin-right:10px;vertical-align:middle}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+/* hero */
+.hero{position:relative;background:var(--night);color:#ECE7DB;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url('../assets/art/banner.png') center/cover;opacity:.5}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,16,.92) 0%,rgba(10,12,16,.55) 45%,rgba(10,12,16,.15) 100%)}
+.hero .wrap{position:relative;padding:110px 24px 120px;max-width:1060px}
+.hero h1{font-size:clamp(30px,4.6vw,46px);margin:14px 0 0;color:#fff}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.lede{margin:16px 0 0;max-width:520px;font-size:17px;color:var(--dim)}
+.hero p.lede b{color:#ECE7DB}
+.btns{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:6px;font-weight:700;font-size:14px;text-decoration:none}
+.btn.gold{background:var(--gold);color:var(--night)}
+.btn.ghost{border:1px solid rgba(236,231,219,.4);color:#ECE7DB}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
+.note{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint);text-transform:uppercase}
+
+/* sections */
+section{padding:72px 0}
+section.alt{background:var(--paper)}
+.lead{font-family:var(--serif);font-size:clamp(20px,2.6vw,26px);margin:12px 0 0;max-width:640px}
+.lead em{font-style:normal;color:var(--gold)}
+.on-dark .lead{color:#ECE7DB}
+
+/* categories */
+.cats{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:22px}
+.cat{border-top:3px solid var(--c);padding-top:12px}
+.cat .n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--c)}
+.cat h3{font-size:17px;margin:4px 0 4px}
+.cat p{font-size:13.5px;color:#4B5157}
+.j{--c:var(--judge)}.b{--c:var(--brief)}.c{--c:var(--check)}.d{--c:var(--deliver)}.p{--c:var(--practise)}
+
+/* pairing */
+.pair{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.step{background:#fff;border:1px solid #D8D4CA;border-radius:10px;padding:22px}
+.step .n{font-family:var(--serif);font-size:30px;color:var(--gold);font-weight:700}
+.step h3{font-size:16px;margin:6px 0 6px}
+.step p{font-size:13.5px;color:#4B5157}
+
+/* box split */
+.split{display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:48px;align-items:center;margin-top:44px}
+.split img{width:100%;border-radius:10px;display:block;box-shadow:0 10px 40px rgba(10,12,16,.35)}
+.split h3{font-size:19px;margin:0 0 10px}
+.split p{font-size:14.5px;color:#3B3F46;margin:0 0 12px}
+.split .facts{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--faint);line-height:2;text-transform:uppercase}
+@media(max-width:800px){.split{grid-template-columns:1fr}}
+
+/* downloads */
+.dl{margin-top:40px;border:1px solid #D8D4CA;border-radius:10px;overflow:hidden}
+.dl a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 22px;text-decoration:none;color:var(--ink);border-bottom:1px solid #E4E1D8}
+.dl a:last-child{border-bottom:0}
+.dl a:hover{background:var(--paper)}
+.dl .what{font-weight:700;font-size:15px}
+.dl .what span{display:block;font-weight:400;font-size:12.5px;color:#6B6F78;margin-top:2px}
+.dl .fmt{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
+.on-dark .dl{border-color:rgba(236,231,219,.18)}
+.on-dark .dl a{color:#ECE7DB;border-bottom-color:rgba(236,231,219,.12)}
+.on-dark .dl a:hover{background:rgba(232,181,77,.08)}
+.on-dark .dl .what span{color:var(--dim)}
+.on-dark .split p{color:var(--dim)}
+
+footer{background:var(--night);color:var(--faint);padding:34px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+footer .tag{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="bg"></div>
+  <div class="wrap on-dark">
+    <div class="kicker">A free deck of small moves</div>
+    <h1>Using and delivering AI<br>with <em>judgement.</em></h1>
+    <p class="lede">Fifty cards, five moves: <b>judge</b> an output, <b>brief</b> the work, <b>check</b> what comes back, <b>deliver</b> it into your week, and keep the <b>practise</b> that keeps you sharp. Pull one when you have a few minutes.</p>
+    <div class="btns">
+      <a class="btn gold" href="deck/judgement-deck-50-print.html">Print the deck</a>
+      <a class="btn ghost" href="deck/judgement-deck-guide.html">Start with the one-page guide</a>
+    </div>
+    <div class="note">No sign-up. No email. Print as many as you like.</div>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker" style="color:#8A6A1F">What's in it</div>
+    <h2 class="lead">Five questions you already ask. <em>Now with moves attached.</em></h2>
+    <div class="cats">
+      <div class="cat j"><div class="n">JUDGE · 10</div><h3>Trust tool</h3><p>How much should I trust this output? Two questions place it in a corner; the corner sets the check.</p></div>
+      <div class="cat b"><div class="n">BRIEF · 11</div><h3>RTCF + push-back</h3><p>How do I ask for what I need? Brief it like a capable new colleague, and make it argue with you.</p></div>
+      <div class="cat c"><div class="n">CHECK · 10</div><h3>Check loop</h3><p>How do I know it's right? Frame, explore, verify from outside the tool, and say what you checked.</p></div>
+      <div class="cat d"><div class="n">DELIVER · 11</div><h3>Opportunity Finder</h3><p>Where does AI fit? Spot, assign, prioritise — then checkpoints and a 30-day scale, pivot or kill gate.</p></div>
+      <div class="cat p"><div class="n">PRACTISE · 8</div><h3>Keep the learning</h3><p>Two-pass habit, decision rules tested blind, and the part no brief can hold.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="on-dark" style="background:var(--night)">
+  <div class="wrap">
+    <div class="kicker">How to use it</div>
+    <h2 class="lead">The guide diagnoses. <em>The deck treats.</em></h2>
+    <div class="pair">
+      <div class="step" style="background:#14161d;border-color:#262a35"><div class="n">1</div><h3 style="color:#ECE7DB">One page, five checks</h3><p>Run one piece of real AI-assisted work past fifteen quick questions. The "not yet"s name your corner.</p></div>
+      <div class="step" style="background:#14161d;border-color:#262a35"><div class="n">2</div><h3 style="color:#ECE7DB">Pull those cards</h3><p>Each card is one move: why it goes wrong, what to do, and a line to remember. A few minutes, on real work.</p></div>
+      <div class="step" style="background:#14161d;border-color:#262a35"><div class="n">3</div><h3 style="color:#ECE7DB">Pin the desk card</h3><p>The whole deck in four panels, one A4 page. It stays on the wall after the cards are memorised.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker" style="color:#8A6A1F">The printed deck</div>
+    <h2 class="lead">Also a boxed deck <em>for the table.</em></h2>
+    <div class="split">
+      <img src="../assets/art/cover.png" alt="The Judgement Deck box art: a brass desk lamp over a fan of index cards">
+      <div>
+        <h3>Used in workshops and consulting rooms</h3>
+        <p>The deck runs as a session: sort it, argue with it, dot-vote the five moves your team needs first, assign owners. It is printed for courses and client work, and the printable edition on this page is the same content.</p>
+        <p>Card faces stay typographic on purpose: one move per card, nothing to interpret. Art lives on the box, the back and the wall — never between you and the text.</p>
+        <div class="facts">50 cards · 5 categories · 93×67 mm<br>Domine · Funnel Sans · Nanum Gothic Coding<br>Free to print and share · not for resale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="download">
+  <div class="wrap">
+    <div class="kicker" style="color:#8A6A1F">Downloads</div>
+    <h2 class="lead">Print it yourself. <em>That's the point.</em></h2>
+    <div class="dl">
+      <a href="deck/judgement-deck-50-print.html"><span class="what">The deck — 50 cards<span>Print &amp; cut, A4 at 100%, 7 sheets. Cut along the dashed lines.</span></span><span class="fmt">HTML → print</span></a>
+      <a href="deck/judgement-deck-30-print.html"><span class="what">The essential 30<span>Small version, 4 sheets. The moves most people need first.</span></span><span class="fmt">HTML → print</span></a>
+      <a href="deck/judgement-desk-card.html"><span class="what">The desk card<span>One A4 pin-up: the whole deck in four panels. Heavier stock if you have it.</span></span><span class="fmt">HTML → print</span></a>
+      <a href="deck/judgement-deck-guide.html"><span class="what">The one-page guide<span>Five checks. The "not yet"s name your cards.</span></span><span class="fmt">HTML → print</span></a>
+      <a href="https://github.com/michael-borck/judgement-deck"><span class="what">Everything, in the open<span>Markdown source, print layouts, art assets and prompts on GitHub.</span></span><span class="fmt">Repository</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="tag">Direct it. Don't delegate. Never surrender.</span>
+    <span>Free to print and share · not for resale</span>
+    <span>Dr Michael Borck · borck.consulting</span>
+  </div>
+</footer>
+
+</body>
+</html>
