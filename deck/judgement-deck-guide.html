@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<title>The one-page guide · The Judgement Deck</title>
+<style>
+@font-face{font-family:'Domine';src:url('fonts/Domine.ttf')}
+@font-face{font-family:'Funnel Sans';src:url('fonts/FunnelSans.ttf')}
+@font-face{font-family:'Funnel Sans';src:url('fonts/FunnelSans-Italic.ttf');font-style:italic}
+@font-face{font-family:'Nanum Gothic Coding';src:url('fonts/NanumGothicCoding-Regular.ttf')}
+@font-face{font-family:'Nanum Gothic Coding';src:url('fonts/NanumGothicCoding-Bold.ttf');font-weight:700}
+:root{--night:#0A0C10;--ink:#16181D;--dim:#4B5157;--faint:#8A8E96;--rule:#D8D4CA;--serif:'Domine',Georgia,serif;--sans:'Funnel Sans','Avenir Next',sans-serif;--mono:'Nanum Gothic Coding',monospace}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--sans);font-size:10.3pt;line-height:1.5;color:var(--ink);background:#e8e6df}
+@media print{body{background:#fff}}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;display:flex;flex-direction:column;background:#fff;margin:6mm auto;box-shadow:0 1mm 4mm rgba(20,20,30,.18)}
+@media print{.page{margin:0;box-shadow:none}}
+.top{background:var(--night);color:#ECE7DB;padding:8mm 12mm 6mm}
+.kicker{font-family:var(--mono);font-size:7.5pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#E8B54D}
+.kicker::before{content:"";display:inline-block;width:16pt;height:2pt;background:#E8B54D;margin-right:6pt;vertical-align:middle}
+.top h1{font-family:var(--serif);color:#ECE7DB;font-size:20pt;margin-top:4pt}
+.top h1 em{font-style:normal;color:#E8B54D}
+.top p{margin:3pt 0 0;color:rgba(236,231,219,.75);font-size:9.5pt}
+.top p b{color:#ECE7DB}
+.grid{flex:1;display:flex;flex-wrap:wrap;padding:7mm 10mm 0;gap:7mm 6mm;align-content:flex-start}
+.sec{width:calc(50% - 3mm);border-top:2.5pt solid var(--acc);padding-top:3.5pt}
+.sec h2{font-weight:700;font-size:14pt;margin:1pt 0 1pt;display:flex;align-items:baseline;gap:6pt}
+.sec h2 span{font-family:var(--mono);font-size:7.5pt;letter-spacing:.14em;color:var(--acc);font-weight:700}
+.sec .q{font-family:var(--serif);font-size:10.5pt;color:var(--dim);margin-bottom:3pt}
+.chk{display:flex;align-items:baseline;gap:3pt;padding:3pt 0;border-bottom:.5pt dotted var(--rule);font-size:9.3pt;line-height:1.38}
+.box{flex:none;display:inline-block;width:7pt;height:7pt;border:1pt solid #9a978c;border-radius:1.5pt;transform:translateY(0.8pt)}
+.lbl{flex:none;font-family:var(--mono);font-size:6.2pt;letter-spacing:.06em;color:var(--faint)}
+.lbl.y{color:var(--acc)}
+.start{font-family:var(--mono);font-size:7pt;letter-spacing:.08em;color:var(--acc);font-weight:700;margin-top:3pt;text-transform:uppercase}
+.bottom{display:flex;gap:5mm;padding:0 10mm 5mm}
+.pra{flex:1.35;border-top:2.5pt solid #3E9A6C;padding-top:3.5pt}
+.close{flex:1;background:#F4F2EC;border:.6pt solid var(--rule);border-radius:2mm;padding:4mm}
+.close h3{font-family:var(--mono);font-size:7.4pt;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 2pt;font-weight:700}
+.close p{font-size:9.5pt;line-height:1.42}
+.wline{border-bottom:1pt solid #9a978c;height:7mm;margin:3pt 0 4pt}
+.foot{padding:2mm 10mm 6mm;display:flex;justify-content:space-between;font-family:var(--mono);font-size:7pt;letter-spacing:.08em;color:var(--faint);text-transform:uppercase}
+.j{--acc:#B8842A}.b{--acc:#1F8A70}.c{--acc:#C4503A}.d{--acc:#3E66B8}.p{--acc:#3E9A6C}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="kicker">The Judgement Deck · The one-page guide</div>
+    <h1>Find your thinnest <em>corner.</em></h1>
+    <p>Pick <b>one piece of AI-assisted work from this week</b> — the one that mattered. Run it past the five checks below. Be honest: nobody's marking it. The checks that come out "not yet" name your cards.</p>
+  </div>
+
+  <div class="grid">
+    <div class="sec j">
+      <h2><span>01 · JUDGE</span>Trust</h2>
+      <div class="q">How much should I trust this output?</div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>I placed each output before acting: how exact must it be, what happens if it's wrong.</span></div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>Anything going out the door had every figure, name and date checked from outside the tool.</span></div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>I'm most sceptical where I know least, not most confident.</span></div>
+      <div class="start">Not yet? Start with cards 01–06</div>
+    </div>
+
+    <div class="sec b">
+      <h2><span>02 · BRIEF</span>The ask</h2>
+      <div class="q">How do I ask for what I need?</div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>My briefs name the audience, the situation and what good looks like — not just the task.</span></div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>The standing context is saved once, not retyped into every chat.</span></div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>When output keeps missing, I add an upgrade (+ Example, + Done) before rewriting from scratch.</span></div>
+      <div class="start">Not yet? Start with cards 07–13</div>
+    </div>
+
+    <div class="sec c">
+      <h2><span>03 · CHECK</span>Verification</h2>
+      <div class="q">How do I know it's right?</div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>Before any analysis, I asked it to describe the data first: rows, columns, gaps.</span></div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>Every number that could change a decision got recounted by me, not by the tool.</span></div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>The deliverable itself says what I checked and how.</span></div>
+      <div class="start">Not yet? Start with cards 14–19</div>
+    </div>
+
+    <div class="sec d">
+      <h2><span>04 · DELIVER</span>The fit</h2>
+      <div class="q">Will it work every week?</div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>The workflow has one owner, one success measure, and a baseline recorded before we started.</span></div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>Every amber or red step has a named person and a specific check.</span></div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>There's a gate date with scale, pivot and kill criteria, set before the demo convinced anyone.</span></div>
+      <div class="start">Not yet? Start with cards 20–26</div>
+    </div>
+
+    <div class="pra sec p" style="width:calc(50% - 2.5mm)">
+      <h2><span>05 · PRACTISE</span>The reps</h2>
+      <div class="q">Is my judgement getting sharper?</div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>Once a week, on a task that matters, I do a rough pass myself before reading AI's.</span></div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>One decision of mine is written as if-then rules and has been tested blind.</span></div>
+      <div class="chk"><span class="box"></span><span class="lbl y">YES</span><span class="lbl">NOT YET</span><span>I could name, out loud, what I would never let the tool decide.</span></div>
+      <div class="start">Not yet? Start with cards 27–30</div>
+    </div>
+
+    <div class="close">
+      <h3>Your thinnest corner</h3>
+      <p>Whichever section had the most "not yet" is where the system is leaning on luck.</p>
+      <div class="wline"></div>
+      <p>Pull those cards. One move at a time, on real work. The deck does the rest.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span>Direct it. Don't delegate. Never surrender.</span><span>Free to print and share · not for resale</span></div>
+</div>
+</body>
+</html>
