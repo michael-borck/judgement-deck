@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Judgement Deck — 50 cards, art edition (print &amp; cut)</title>
+<style>
+@font-face { font-family: 'Domine'; src: url('fonts/Domine.ttf'); }
+@font-face { font-family: 'Funnel Sans'; src: url('fonts/FunnelSans.ttf'); font-weight: 400; }
+@font-face { font-family: 'Funnel Sans'; src: url('fonts/FunnelSans-Italic.ttf'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Nanum Gothic Coding'; src: url('fonts/NanumGothicCoding-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Nanum Gothic Coding'; src: url('fonts/NanumGothicCoding-Bold.ttf'); font-weight: 700; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: 'Funnel Sans', 'Avenir Next', sans-serif; background: #e8e6df; color: #16181d; }
+.no-print { max-width: 192mm; margin: 10mm auto 6mm; padding: 5mm 7mm; background: #0A0C10; color: #fff;
+  border-radius: 3mm; font-size: 9pt; line-height: 1.5; }
+.no-print strong { color: #f0c75e; }
+.no-print button { margin-top: 2.5mm; padding: 2mm 5mm; border: 0; border-radius: 2mm; background: #f0c75e;
+  color: #0A0C10; font: 700 9.5pt/1 inherit; font-family: inherit; cursor: pointer; }
+@page { size: A4; margin: 9mm; }
+.sheet { width: 192mm; margin: 8mm auto; padding: 0; display: grid;
+  grid-template-columns: repeat(2, 1fr); grid-auto-rows: 91mm; gap: 3mm;
+  background: #fff; box-shadow: 0 1mm 4mm rgba(20,20,30,.18); }
+@media print { body { background: #fff; } .sheet { margin: 0; box-shadow: none; } .no-print { display: none; } }
+
+.card { border: 0.4mm dashed #b8b4a8; border-radius: 3mm; overflow: hidden;
+  display: flex; flex-direction: column; break-inside: avoid; page-break-inside: avoid; }
+.card.judge    { --c: #B8842A; --h: 0deg;   --ill: url('../assets/art/ill/judge.png'); }
+.card.brief    { --c: #1F8A70; --h: 130deg; --ill: url('../assets/art/ill/brief.png'); }
+.card.check    { --c: #C4503A; --h: 325deg; --ill: url('../assets/art/ill/check.png'); }
+.card.deliver  { --c: #3E66B8; --h: 180deg; --ill: url('../assets/art/ill/deliver.png'); }
+.card.practise { --c: #3E9A6C; --h: 105deg; --ill: url('../assets/art/ill/practise.png'); }
+
+.art { position: relative; height: 21mm; flex: none; }
+.art .img { position: absolute; inset: 0; background-image: var(--ill); background-size: cover;
+  background-position: center; filter: grayscale(1) sepia(1) saturate(2.6) hue-rotate(var(--h)) brightness(.92) contrast(1.05); }
+.art .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,12,16,.30), rgba(10,12,16,.82)); }
+.art .top { position: absolute; left: 0; right: 0; top: 0; padding: 2.2mm 3.5mm;
+  display: flex; align-items: center; justify-content: space-between; }
+.chip { display: inline-block; padding: 1mm 2.8mm; border-radius: 5mm; background: var(--c); color: #fff;
+  font-family: 'Nanum Gothic Coding', monospace; font-size: 6.2pt; font-weight: 700; letter-spacing: .12em; }
+.kind { font-family: 'Nanum Gothic Coding', monospace; font-size: 5.6pt; letter-spacing: .14em; color: rgba(255,255,255,.75); }
+.num { font-size: 7pt; font-weight: 600; color: rgba(255,255,255,.85); letter-spacing: .06em; }
+
+.body { flex: 1; padding: 2.6mm 4mm 3mm; display: flex; flex-direction: column; min-height: 0; }
+.title { font-family: 'Domine', Georgia, serif; font-size: 11.5pt; font-weight: 700; line-height: 1.15; margin: 0 0 1mm; color: #16181d; }
+.lbl { font-family: 'Nanum Gothic Coding', monospace; font-size: 5.7pt; font-weight: 700; letter-spacing: .11em;
+  color: var(--c); margin: 1.4mm 0 .5mm; }
+p.a, p.b { font-size: 7.8pt; line-height: 1.3; color: #33363d; }
+.brief-txt { font-family: 'Nanum Gothic Coding', monospace; font-size: 6.2pt; line-height: 1.32; color: #26221a;
+  background: #F4F2EC; border-left: 0.6mm solid var(--c); padding: 1.2mm 2mm; border-radius: 1mm; }
+.line { margin-top: auto; padding-top: 1.4mm; border-top: 0.3mm solid rgba(22,24,29,.14);
+  font-size: 8pt; font-style: italic; font-weight: 600; line-height: 1.22; color: var(--c); }
+
+/* cover card */
+.card.cover-art { border-style: solid; border-color: #0A0C10; position: relative; }
+.cover-art .img { position: absolute; inset: 0; background-image: url('../assets/art/cover.png');
+  background-size: cover; background-position: center; filter: brightness(.9); }
+.cover-art .shade { position: absolute; inset: 0; background: linear-gradient(200deg, rgba(10,12,16,.25) 0%, rgba(10,12,16,.62) 55%, rgba(10,12,16,.92) 100%); }
+.cover-art .cov { position: relative; margin-top: auto; padding: 4mm; display: flex; flex-direction: column; height: 100%; }
+.cov .kicker { font-family: 'Nanum Gothic Coding', monospace; font-size: 6.8pt; font-weight: 700; letter-spacing: .2em; color: #E8B54D; }
+.cov h1 { font-family: 'Domine', Georgia, serif; font-size: 20pt; font-weight: 700; line-height: 1.08; margin: 2mm 0 0; color: #fff; }
+.cov .sub { font-size: 8.5pt; margin-top: 1.6mm; color: #c9cbe6; line-height: 1.35; }
+.cov .cats { margin-top: 2.6mm; font-size: 7pt; line-height: 1.8; color: #c9cbe6; }
+.dot { display: inline-block; width: 2.4mm; height: 2.4mm; border-radius: 50%; margin-right: 2mm; }
+.cov .tag { margin-top: auto; padding-top: 2mm; font-family: 'Domine', Georgia, serif; font-style: italic; font-size: 8pt; color: #E8B54D; }
+</style>
+</head>
+<body>
+<div class="no-print">
+<strong>Art edition.</strong> A4 &middot; scale <strong>100% / Actual size</strong> &middot; background graphics: on.
+Portrait cards, 6 per page, 9 pages — the first card is the box-art cover. Cut along the dashed lines.
+Free to print and share; not for resale.
+<button onclick="window.print()">Print</button>
+</div>
+<div class="sheet"><div class="card cover-art">
+<div class="img"></div><div class="shade"></div>
+<div class="cov">
+<div class="kicker">A DECK OF SMALL MOVES</div>
+<h1>The Judgement Deck</h1>
+<div class="sub">50 cards for using and delivering AI with judgement — one move per card.</div>
+<div class="cats">
+<span class="dot" style="background:#B8842A"></span>Judge — how much should I trust this output?<br>
+<span class="dot" style="background:#1F8A70"></span>Brief — how do I ask for what I need?<br>
+<span class="dot" style="background:#C4503A"></span>Check — how do I know it's right?<br>
+<span class="dot" style="background:#3E66B8"></span>Deliver — where does AI fit, and will it work every week?<br>
+<span class="dot" style="background:#3E9A6C"></span>Practise — keep the learning
+</div>
+<div class="tag">Direct it. Don't delegate. Never surrender.</div>
+</div>
+</div>
+<div class="card judge">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">JUDGE</span><span class="kind">HABIT</span><span class="num">01 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Place it before you act</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">The time sink isn&#x27;t drafting, it&#x27;s checking everything as if everything matters. The same skim gets applied to a birthday message and a board figure.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Ask two questions of any output: how exact must it be (average or precise), and what happens if it&#x27;s wrong (small or large). Two answers place it in a corner, and the corner sets the check.</p>
+<p class="line">Ten seconds of placing saves an hour of wrong checking.</p>
+</div>
+</div>
+<div class="card judge">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">JUDGE</span><span class="kind">HABIT</span><span class="num">02 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Corner A — trust with light review</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Low-stakes drafts get over-checked, which trains you to treat the tool as a toy or a threat instead of a calibrated instrument.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Average precision, small consequences: use it, skim before it goes out. A first-pass draft, an internal summary.</p>
+<p class="line">Light review is a real answer. Not everything needs a committee.</p>
+</div>
+</div>
+<div class="card judge">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">JUDGE</span><span class="kind">HABIT</span><span class="num">03 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Corner B — verify the load-bearing bits</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">An output can be 95% right and still fail, if the 5% you skipped was the claim everything else rested on.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Find the claims the piece rests on and check those from outside the tool. A strategy memo for the exec team lives here.</p>
+<p class="line">Check the claims it rests on, not the sentences you liked.</p>
+</div>
+</div>
+<div class="card judge">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">JUDGE</span><span class="kind">HABIT</span><span class="num">04 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Corner C — verify before you ship</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">A statistic in a newsletter looks identical to a statistic in a board paper. Only one of them gets found out.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">If it&#x27;s going out the door, check every figure, name and date first. No exceptions for small audiences.</p>
+<p class="line">If it ships with your name on it, every number is yours.</p>
+</div>
+</div>
+<div class="card judge">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">JUDGE</span><span class="kind">HABIT</span><span class="num">05 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Corner D — human in the loop</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">When exactly-right meets high stakes, “review” is a fiction. You cannot review your way out of accountability.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">AI can help: draft options, summarise the file, run scenarios. The call and the signature stay human. Decisions about people live here, always.</p>
+<p class="line">AI can help. A person decides.</p>
+</div>
+</div></div><div class="sheet"><div class="card judge">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">JUDGE</span><span class="kind">HABIT</span><span class="num">06 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Check from outside the tool</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">“Are you sure?” feels like verification, but models tend to agree with themselves. Asking the tool to check itself is not a check.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Verify against something the tool can&#x27;t charm: the data, the source document, a colleague who knows, your own arithmetic.</p>
+<p class="line">A source of truth that can&#x27;t flatter you.</p>
+</div>
+</div>
+<div class="card judge">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">JUDGE</span><span class="kind">HABIT</span><span class="num">07 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Gell-Mann amnesia</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">You catch AI&#x27;s errors in your own field, then believe it on the law, the market or the numbers, exactly where you can&#x27;t check.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Flip the instinct: be most sceptical where you know least. Inside your expertise, skim. Outside it, VET.</p>
+<p class="line">Your expertise finds errors at home. It doesn&#x27;t travel.</p>
+</div>
+</div>
+<div class="card judge">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">JUDGE</span><span class="kind">HABIT</span><span class="num">08 / 50</span></div></div>
+<div class="body">
+<h2 class="title">The AI dismissal fallacy</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">“That&#x27;s just ChatGPT” feels like discernment. It&#x27;s a refusal to engage, and it throws away real capability along with the bad drafts.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Judge the reasoning, not where it came from. If an argument is wrong, say where. If it&#x27;s right, use it, whoever drafted it.</p>
+<p class="line">“It&#x27;s AI” isn&#x27;t a critique. Wrong is a critique.</p>
+</div>
+</div>
+<div class="card judge">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">JUDGE</span><span class="kind">HABIT</span><span class="num">09 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Sycophancy</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Models are tuned on human approval, and people prefer agreeable answers. Ask “what do you think?” and you get a mirror.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Ask for weakness by name: “What are the three weakest points in this?” The push-back briefs in this deck do it for you.</p>
+<p class="line">Ask for the three weakest points, not the opinion.</p>
+</div>
+</div>
+<div class="card judge">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">JUDGE</span><span class="kind">HABIT</span><span class="num">10 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Corners move; the check stays</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">A model upgrade moves outputs between corners, and people carry old trust forward without noticing. Yesterday&#x27;s green is today&#x27;s amber.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Revisit your placements every few months, especially for work you&#x27;ve automated.</p>
+<p class="line">Better models move the corners. They never remove the check.</p>
+</div>
+</div>
+<div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">HABIT</span><span class="num">11 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Brief it like a new colleague</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">People type a fragment and hope. The tool is a smart, fast colleague who is new to your job; a fragment briefs nobody well.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">RTCF. Role: who should it write as. Task: what exactly, and how much. Context: what only you know. Format: what it should look like.</p>
+<p class="line">Prompting is briefing, not spell-casting.</p>
+</div>
+</div></div><div class="sheet"><div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">HABIT</span><span class="num">12 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Context does most of the work</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">The tool can guess at tone and structure. It cannot guess the client history, the board shift, or what good looks like this week. Missing context is why outputs feel generic.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Spend your words on context: audience, situation, stakes, your standard for good. Paste your notes.</p>
+<p class="line">The only part it can&#x27;t guess is the part only you know.</p>
+</div>
+</div>
+<div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">HABIT</span><span class="num">13 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Role does the least</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">People polish the role (“you are a world-leading expert…”) and starve the context, then wonder why everything sounds the same.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">One clear role line is enough: “an experienced project manager who writes plainly.” Move the effort to context.</p>
+<p class="line">A good role is one sentence. A good context is a paragraph.</p>
+</div>
+</div>
+<div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">BRIEF</span><span class="num">14 / 50</span></div></div>
+<div class="body">
+<h2 class="title">+ Example</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">You&#x27;ve seen output you liked, and want that again.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Here is an example I liked: [paste]. Match its length, tone and structure for [new task]. Don&#x27;t copy its content.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">A.</p>
+</div>
+</div>
+<div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">BRIEF</span><span class="num">15 / 50</span></div></div>
+<div class="body">
+<h2 class="title">+ Done</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">The output keeps missing, or “good enough” keeps shifting.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Done means: [length], [structure], using only facts I&#x27;ve given you. Mark anything you&#x27;re unsure of with [CHECK] rather than guessing.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">As the task.</p>
+</div>
+</div>
+<div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">BRIEF</span><span class="num">16 / 50</span></div></div>
+<div class="body">
+<h2 class="title">+ Questions</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">You&#x27;re not sure what context it needs.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Before you start on [task], ask me up to five questions about anything you&#x27;d need to know to do it well. Ask them one at a time and wait for my answer.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">A.</p>
+</div>
+</div>
+<div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">BRIEF</span><span class="num">17 / 50</span></div></div>
+<div class="body">
+<h2 class="title">+ Steps</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">The job is long, multi-part, or the model is small or old.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">We&#x27;ll do [task] in steps. First, give me an outline only, as headings with one line each. Wait for my go-ahead, then draft one section at a time.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">As the task.</p>
+</div>
+</div></div><div class="sheet"><div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">BRIEF</span><span class="num">18 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Guardrail</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">You want an honest assessment that holds across the conversation.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Only change your assessment if I give you a new fact. If you do change it, name the fact that changed it.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">B.</p>
+</div>
+</div>
+<div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">BRIEF</span><span class="num">19 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Devil&#x27;s advocate</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">You like the plan too much to trust your own review of it.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Don&#x27;t flatter me. Here is my [plan / proposal / idea]: [paste]. Give me the three strongest reasons it fails, and name the single assumption it all rests on.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">B.</p>
+</div>
+</div>
+<div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">BRIEF</span><span class="num">20 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Board of directors</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">One confident answer isn&#x27;t enough.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Respond to [proposal] as a board of three: a CFO, a sceptical customer and a frontline manager. One paragraph each from their point of view. Then list where they disagree with each other.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">B.</p>
+</div>
+</div>
+<div class="card brief">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">BRIEF</span><span class="kind">HABIT</span><span class="num">21 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Set it once</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Retyping the same standing context every chat is briefing tax, and the version you type at 4:55pm is thinner than the one you typed at 9.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Save a standing brief in custom instructions, a project or a Gem: the role, the context that doesn&#x27;t change, your format, your Done line. The task stays in the chat.</p>
+<p class="line">The standing brief holds what&#x27;s true. The chat holds the task.</p>
+</div>
+</div>
+<div class="card check">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">CHECK</span><span class="kind">HABIT</span><span class="num">22 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Run the loop</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Analysis arrives fast and reads confident. Speed without a loop is how a wrong number reaches a decision document.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Frame: the question and the decision it feeds, in a fresh chat. Explore: describe the data first. Verify: recount anything that would change a decision. Shape: write for the reader, then say what you checked.</p>
+<p class="line">AI makes analysis fast. It doesn&#x27;t make it trustworthy.</p>
+</div>
+</div>
+<div class="card check">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">CHECK</span><span class="kind">BRIEF</span><span class="num">23 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Describe the data first</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">It&#x27;s the first prompt on any dataset. Always.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Describe this dataset before analysing it: number of rows, the columns and what each seems to contain, the date range, and anything missing, duplicated or inconsistent. Don&#x27;t draw conclusions yet.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">C.</p>
+</div>
+</div></div><div class="sheet"><div class="card check">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">CHECK</span><span class="kind">BRIEF</span><span class="num">24 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Show your working</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">Any figure will drive a decision.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">For each number in your answer, show how you calculated it: which rows or columns you used, any filters you applied, and the formula. List anything you excluded and why.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">C, then recount it yourself.</p>
+</div>
+</div>
+<div class="card check">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">CHECK</span><span class="kind">BRIEF</span><span class="num">25 / 50</span></div></div>
+<div class="body">
+<h2 class="title">VET the claim</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">You can&#x27;t check a claim against your own data.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">You told me: [paste the claim]. Help me VET it. VERIFY: What sources would support this, and how could I check them independently? EXPLAIN: Break it down step by step until I could explain it to a colleague. TEST: Under what conditions, or for whom, would it be wrong?</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">B or C.</p>
+</div>
+</div>
+<div class="card check">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">CHECK</span><span class="kind">HABIT</span><span class="num">26 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Five ways a smooth answer goes wrong</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Errors hide inside fluent prose. The reader feels the confidence and skips the arithmetic.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Watch for five: miscounts after filtering; correlation sold as cause; missing rows skipped silently; numbers that can&#x27;t all be true; detail that isn&#x27;t in the file.</p>
+<p class="line">The most dangerous output sounds completely right.</p>
+</div>
+</div>
+<div class="card check">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">CHECK</span><span class="kind">HABIT</span><span class="num">27 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Say what you checked</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">A checked analysis that doesn&#x27;t announce its check reads the same as an unchecked one. The reader either re-does your work or trusts you blindly.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">End with one line: what you verified and how. “Totals recounted against the source file; two outliers excluded.”</p>
+<p class="line">Your check is part of the deliverable.</p>
+</div>
+</div>
+<div class="card check">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">CHECK</span><span class="kind">BRIEF</span><span class="num">28 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Fresh-chat second opinion</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">A long conversation has gone on too long to be independent.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">I&#x27;m going to paste a conclusion reached in another conversation. Assess it independently. Where is it strongest, where is it weakest, and what would you need to see to be confident it&#x27;s right? [paste]</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">B.</p>
+</div>
+</div>
+<div class="card check">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">CHECK</span><span class="kind">BRIEF</span><span class="num">29 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Describe the shape, not the data</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">You can&#x27;t share the real data. The tool never sees it.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">I can&#x27;t share the data itself. Its structure is: [number] rows, columns [list them, with types and made-up example values]. Write the steps or spreadsheet formulas I&#x27;d use to answer [question], so I can run them myself. Or: write a single HTML page that runs entirely in my browser and shows [the result]. It must not send the data anywhere.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">C. Run it on data where you know the answer first.</p>
+</div>
+</div></div><div class="sheet"><div class="card check">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">CHECK</span><span class="kind">HABIT</span><span class="num">30 / 50</span></div></div>
+<div class="body">
+<h2 class="title">If you can&#x27;t read the code</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">AI writes analysis code you can run without understanding. The run succeeding is not the same as the code being right.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Run it on data where you know the answer, and see if it returns that answer. Can&#x27;t read the code at all? Treat everything it produces as Corner D.</p>
+<p class="line">If you can&#x27;t read it, you can&#x27;t green-corner it.</p>
+</div>
+</div>
+<div class="card check">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">CHECK</span><span class="kind">HABIT</span><span class="num">31 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Verify the channel</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">A voice or video asking for money, a password or new bank details gets checked, if at all, in the channel it arrived in. That channel is what&#x27;s compromised.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Check outside the channel: hang up and call back on a number you already have.</p>
+<p class="line">A familiar face on a call is no longer proof.</p>
+</div>
+</div>
+<div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">HABIT</span><span class="num">32 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Spot the four signals</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">People hunt for “AI use cases” and find none, while their week fills the four real patterns unnoticed.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Look for: work you do often the same way (automate); reading, gathering, comparing (assist); writing from a blank page (generate); hunting for meaning in numbers (analyse).</p>
+<p class="line">Your week is full of candidates. You just haven&#x27;t counted them.</p>
+</div>
+</div>
+<div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">HABIT</span><span class="num">33 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Assign who leads</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">“Use AI for it” skips the only question that matters: which part of it.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Per step: AI leads (minutes from your notes), AI assists (a client proposal), you lead (a strategy paper), human only (telling someone their role is going).</p>
+<p class="line">Empathy, ethics, accountability: never AI leads.</p>
+</div>
+</div>
+<div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">HABIT</span><span class="num">34 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Count the checking as effort</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Time saved gets measured at the draft; checking gets measured never. Workflows that “save two hours” quietly cost five in review.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Prioritise quick wins: high time saved, low setup effort. Setup includes the checking. Quick wins usually sit in green, because they&#x27;re cheap to check.</p>
+<p class="line">Count the checking as effort.</p>
+</div>
+</div>
+<div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">BRIEF</span><span class="num">35 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Map my workflow</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">You&#x27;re turning one repeated task into a delivery plan.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Here&#x27;s how I currently do [weekly task], in my own words: [describe it]. List it as numbered steps with a time estimate for each. For each step, suggest whether AI could lead, assist, or should stay with a person, and say why. Don&#x27;t assume access to any system I haven&#x27;t mentioned.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">B.</p>
+</div>
+</div></div><div class="sheet"><div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">BRIEF</span><span class="num">36 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Pre-mortem</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">You&#x27;re about to start a new workflow or project.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Imagine it&#x27;s 30 days from now and [the workflow / project] has failed. Write the five most likely reasons it failed, and for each, one early warning sign I could watch for and one thing I could put in place now.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">B.</p>
+</div>
+</div>
+<div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">HABIT</span><span class="num">37 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Scope: one, one, one</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">“We&#x27;re rolling out AI” scopes nothing. Without a baseline, every outcome is debatable and every failure is invisible.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">One workflow, one owner, one success measure. Record today&#x27;s time and quality before you start. That number is the whole argument.</p>
+<p class="line">If you can&#x27;t name the baseline, you can&#x27;t prove the win.</p>
+</div>
+</div>
+<div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">HABIT</span><span class="num">38 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Checkpoints before checkpoints are needed</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Review steps get added after the first scare, by which time the wrong output has already gone out once.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Every amber or red step gets a named person and a specific check before go-live. Pick someone who knows what right looks like.</p>
+<p class="line">“AI” is not the name of a checker.</p>
+</div>
+</div>
+<div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">HABIT</span><span class="num">39 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Keep one human step on purpose</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Automating 80% of a junior&#x27;s routine work looks like a win until you realise the work that trained their judgement has gone.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Keep at least one human checkpoint that exists to build capability, not to catch errors. Say so, so nobody “efficiency-improves” it away later.</p>
+<p class="line">Routine work used to teach. Now practice is a choice.</p>
+</div>
+</div>
+<div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">HABIT</span><span class="num">40 / 50</span></div></div>
+<div class="body">
+<h2 class="title">The 30-day gate</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Pilots drift into permanent fixtures because nobody set the date or the criteria, and the demo already convinced everyone.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Before you start: a date about 30 days out, and the criteria for each call. Scale if it met the measure with a light review. Pivot if close but checking costs too much. Kill if it missed.</p>
+<p class="line">Set the gate before the demo convinces you.</p>
+</div>
+</div>
+<div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">BRIEF</span><span class="num">41 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Gate review</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">You&#x27;re at the gate. You make the call.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">At the start I set these criteria. Scale if: [criteria]. Pivot if: [criteria]. Kill if: [criteria]. Here&#x27;s what happened over 30 days: [log, numbers, issues]. Assess the evidence against each criterion and tell me what&#x27;s missing. Don&#x27;t make the decision for me.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">D.</p>
+</div>
+</div></div><div class="sheet"><div class="card deliver">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">DELIVER</span><span class="kind">HABIT</span><span class="num">42 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Three gate mistakes</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">The gate moment is where sunk cost, selective memory and perfectionism all show up wearing sensible clothes.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Watch for: sunk cost (“we&#x27;ve come too far”), cherry-picking the measures that passed, and treating “not perfect” as “broken”. Killing cheaply is a win.</p>
+<p class="line">Killing is a good outcome: you found where the line is, cheaply.</p>
+</div>
+</div>
+<div class="card practise">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">PRACTISE</span><span class="kind">HABIT</span><span class="num">43 / 50</span></div></div>
+<div class="body">
+<h2 class="title">The two-pass habit</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Routine work used to teach you while you did it. When AI does it, the reps stop, and your judgement quietly rusts.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Once a week, on a task that matters: your own rough pass first, then give AI the same brief and compare.</p>
+<p class="line">Where it beat you is your blind spot. Where you beat it is its limit.</p>
+</div>
+</div>
+<div class="card practise">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">PRACTISE</span><span class="kind">BRIEF</span><span class="num">44 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Interview me for my rules</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">Your answer to “why did you decide that?” is “it depends”.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Help me write down the rules I use for one decision: [the decision]. Question me one at a time, choosing each question from my last answer. Each time I say “it depends” or stay vague, dig until you can state it as an if-then rule. Stop after fifteen to twenty questions and list the rules you&#x27;ve heard, every branch included, for me to check.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">B. Read every rule and ask whether you&#x27;d have said it.</p>
+</div>
+</div>
+<div class="card practise">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">PRACTISE</span><span class="kind">BRIEF</span><span class="num">45 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Blind test my rules</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">You&#x27;ve drafted decision rules and are about to rely on them. Run in a new chat.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Using the decision rules below, make the call on each of these [three to five] cases. I&#x27;ve left out what I decided. For each case, give your call, the rule you used, and your reasoning in two or three short steps. Then stop, and I&#x27;ll compare your calls with mine. [Paste the rules, then the cases.]</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">D. You make the final call.</p>
+</div>
+</div>
+<div class="card practise">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">PRACTISE</span><span class="kind">BRIEF</span><span class="num">46 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Write like me</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">Every draft sounds like everyone. Teach the tool your voice once.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Here are [three or four] things I&#x27;ve written: [paste, with anything confidential removed]. Describe my writing style as a brief another writer could follow: tone, sentence length and structure, vocabulary, how I open and close, and anything I never do. Quote a short example from my samples for each point.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">B. It will be slightly a parody. Edit it until it&#x27;s you.</p>
+</div>
+</div>
+<div class="card practise">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">PRACTISE</span><span class="kind">BRIEF</span><span class="num">47 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Voice pass</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">One draft needs to sound like you, today.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Here&#x27;s about 100 words I wrote: [paste, with anything confidential removed]. Rewrite your last output in my voice, leading with the one thing only I would say.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">A. Read it aloud. Would you have said it?</p>
+</div>
+</div></div><div class="sheet"><div class="card practise">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">PRACTISE</span><span class="kind">HABIT</span><span class="num">48 / 50</span></div></div>
+<div class="body">
+<h2 class="title">The two-chat workflow</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">One chat that thinks and builds does both badly: the mess stays in the output, and the output drifts towards whatever you last agreed with.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Thinking chat: explore, argue, follow tangents. Then you curate: keep what matters, write a short focused brief. Building chat: a fresh chat that produces the output from your brief.</p>
+<p class="line">Curation is where your judgement lives.</p>
+</div>
+</div>
+<div class="card practise">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">PRACTISE</span><span class="kind">BRIEF</span><span class="num">49 / 50</span></div></div>
+<div class="body">
+<h2 class="title">Handover prompt</h2>
+<div class="lbl">USE WHEN</div>
+<p class="a">A long chat has drifted. Before you close it.</p>
+<div class="lbl">THE BRIEF</div>
+<div class="brief-txt">Write a handover prompt that captures everything important from this conversation: the context, the decisions made, open questions, and where we left off. I&#x27;ll paste it into a new chat to continue.</div>
+<div class="lbl" style="margin-top:1mm">THE CHECK</div>
+<p class="line" style="border-top:0;margin-top:0;padding-top:0">A. You keep the thinking and lose the noise.</p>
+</div>
+</div>
+<div class="card practise">
+<div class="art"><div class="img"></div><div class="shade"></div><div class="top"><span class="chip">PRACTISE</span><span class="kind">HABIT</span><span class="num">50 / 50</span></div></div>
+<div class="body">
+<h2 class="title">The un-promptable part</h2>
+<div class="lbl">WHY IT GOES WRONG</div>
+<p class="a">Some of what makes a good decision can&#x27;t go in a brief: the situation is changing in real time, the right call is against the data, and the variables that matter haven&#x27;t all been thought of yet.</p>
+<div class="lbl">THE MOVE</div>
+<p class="b">Keep the cases that didn&#x27;t fit any rule. They show where your judgement is doing work a page of rules cannot.</p>
+<p class="line">The rules draft the call. You still make it.</p>
+</div>
+</div></div>
+</body>
+</html>

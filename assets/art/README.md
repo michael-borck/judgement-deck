@@ -34,9 +34,29 @@ sidecar.
 
 | File | Use | Subject |
 |---|---|---|
-| `cover.png` | Box front, landing page hero, cut-card cover background if ever used | Brass desk lamp over a fan of index cards, magnifying glass, fountain pen |
+| `cover.png` | Box front, landing page hero, art-edition cover card | Brass desk lamp over a fan of index cards, magnifying glass, fountain pen |
 | `back.png` | Deck back when printed double-sided (deck name overlaid at render time) | Ornate gold linework card back; central emblem is a balance scale and compass rose medallion |
 | `banner.png` | Social preview (1280×640-safe), landing page banner, course slides | Wide desk scene with dark left third for a title overlay |
+
+## ill/ — the concept-keyed vignette library
+
+Five landscape vignettes, one per category, keyed by concept (not by card).
+The art edition (`deck/judgement-deck-50-art.html`) places the category
+vignette as a banner on every card face and duotone-tints it in the category
+colour at render time (CSS hue-rotate from a sepia base): gold Judge,
+teal Brief, coral Check, blue Deliver, green Practise — category = subject,
+colour = tint. The tint keeps the deck readable as five families at a glance.
+
+| File | Category | Subject |
+|---|---|---|
+| `judge.png` | Judge | Magnifying glass held over a single index card |
+| `brief.png` | Brief | Fountain pen on a freshly written card, ink still wet |
+| `check.png` | Check | Brass pocket watch held over a table of figures |
+| `deliver.png` | Deliver | Finished cards in an outbox tray, top card lifted into the light |
+| `practise.png` | Practise | Worn rubber-banded deck on a shelf beside a closed notebook |
+
+Regenerate with the canonical prefix + subject + `no text, no letters, no
+words`, at `1344x768`.
 
 ## Future: full art edition faces
 

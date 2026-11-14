@@ -23,6 +23,7 @@ faces stay typographic by design.
 | `judgement-deck-50-print.html` | Full deck, print & cut. 7 A4 pages, 8 cards per sheet, cover card first. |
 | `judgement-deck-30-cards.md` | Essential cut, markdown. 6 Judge, 7 Brief, 6 Check, 7 Deliver, 4 Practise. |
 | `judgement-deck-30-print.html` | Essential cut, print & cut. 4 A4 pages. |
+| `judgement-deck-50-art.html` | Art edition for the boxed print run: portrait cards, 6 per A4, category vignette tinted per colour on every face. |
 | `judgement-desk-card.html` | One A4 pin-up: the whole deck in four panels. Print at 100%, heavier stock if available. |
 | `judgement-deck-guide.html` | One-page diagnostic: run one piece of real work past five checks; the "not yet"s name your cards. |
 | `fonts/` | Domine, Funnel Sans, Nanum Gothic Coding (SIL OFL), copied from the course assets. |
