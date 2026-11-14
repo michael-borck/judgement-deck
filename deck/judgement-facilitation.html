@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<title>Run it as a session · The Judgement Deck</title>
+<style>
+@font-face{font-family:'Domine';src:url('fonts/Domine.ttf')}
+@font-face{font-family:'Funnel Sans';src:url('fonts/FunnelSans.ttf')}
+@font-face{font-family:'Funnel Sans';src:url('fonts/FunnelSans-Italic.ttf');font-style:italic}
+@font-face{font-family:'Nanum Gothic Coding';src:url('fonts/NanumGothicCoding-Regular.ttf')}
+@font-face{font-family:'Nanum Gothic Coding';src:url('fonts/NanumGothicCoding-Bold.ttf');font-weight:700}
+:root{--night:#0A0C10;--ink:#16181D;--dim:#4B5157;--faint:#8A8E96;--rule:#D8D4CA;--gold:#B8842A;
+--serif:'Domine',Georgia,serif;--sans:'Funnel Sans','Avenir Next',sans-serif;--mono:'Nanum Gothic Coding',monospace}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--sans);font-size:10.4pt;line-height:1.5;color:var(--ink);background:#e8e6df}
+@media print{body{background:#fff}}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;display:flex;flex-direction:column;background:#fff;margin:6mm auto;box-shadow:0 1mm 4mm rgba(20,20,30,.18)}
+@media print{.page{margin:0;box-shadow:none}}
+.top{background:var(--night);color:#ECE7DB;padding:8mm 12mm 6mm}
+.kicker{font-family:var(--mono);font-size:7.5pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#E8B54D}
+.kicker::before{content:"";display:inline-block;width:16pt;height:2pt;background:#E8B54D;margin-right:6pt;vertical-align:middle}
+.top h1{font-family:var(--serif);font-size:20pt;margin-top:4pt}
+.top h1 em{font-style:normal;color:#E8B54D}
+.top p{margin:3pt 0 0;color:rgba(236,231,219,.75);font-size:9.5pt}
+.top p b{color:#ECE7DB}
+.need{margin:5mm 12mm 0;padding:4mm 5mm;background:#F4F2EC;border-left:2pt solid var(--gold);border-radius:1mm}
+.need h3{font-family:var(--mono);font-size:7.4pt;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 2pt;font-weight:700}
+.need p{font-size:9.4pt;margin:0}
+.sheet{flex:1;padding:5mm 12mm 0}
+.run{width:100%;border-collapse:collapse}
+.run th{font-family:var(--mono);font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-align:left;padding:2.5mm 3mm 2mm;border-bottom:1.4pt solid var(--ink)}
+.run td{padding:2.8mm 3mm;border-bottom:.5pt dotted var(--rule);font-size:9.3pt;line-height:1.42;vertical-align:top}
+.run td.t{font-family:var(--mono);font-weight:700;font-size:8.5pt;color:var(--dim);white-space:nowrap;width:16mm}
+.run td b{font-weight:700}
+.debrief{margin:5mm 12mm 0;display:flex;gap:5mm}
+.debrief>div{flex:1;background:#F4F2EC;border:.6pt solid var(--rule);border-radius:2mm;padding:3.5mm}
+.debrief h3{font-family:var(--mono);font-size:7.2pt;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 2pt;font-weight:700}
+.debrief p{font-size:9.2pt;line-height:1.42;margin:0 0 2pt}
+.foot{padding:3mm 12mm 6mm;display:flex;justify-content:space-between;font-family:var(--mono);font-size:7pt;letter-spacing:.08em;color:var(--faint);text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="kicker">The Judgement Deck · Facilitation</div>
+    <h1>Run it as a <em>sixty-minute session.</em></h1>
+    <p>For a team meeting or a workshop block. Six or more people, one printed deck per table of three or four. The deck does the teaching; you keep the time.</p>
+  </div>
+
+  <div class="need">
+    <h3>What you need on the table</h3>
+    <p>One printed deck per table (cut before the session) · a pen per person · dot stickers, two per person · a visible timer · one sheet per table for the commitments.</p>
+  </div>
+
+  <div class="sheet">
+    <table class="run">
+      <tr><th style="width:16mm">Time</th><th>Move</th></tr>
+      <tr><td class="t">0:00</td><td><b>Deal and sort.</b> Each table spreads the deck face up and sorts it into three piles: <b>we already do this</b>, <b>we should do this</b>, <b>nobody does this</b>. No debating yet; sorting only. The piles are the room's honest map.</td></tr>
+      <tr><td class="t">0:10</td><td><b>Place the week's real work.</b> Each person names one piece of AI-assisted work from their week. The table places it on the trust tool's corners together — A, B, C or D — and says what check the corner demands. Disagreement here is the exercise, not a problem.</td></tr>
+      <tr><td class="t">0:20</td><td><b>Read the moves.</b> Tables take turns reading their "we should do this" pile aloud, one line each — the line at the bottom of the card only. Fast, no discussion. This is the room hearing its own to-do list.</td></tr>
+      <tr><td class="t">0:30</td><td><b>Dot-vote the five.</b> Two dots each, on the cards the team most needs in the next month. Dots go on cards, not on people. The top five cards come off the deck and stay on the table.</td></tr>
+      <tr><td class="t">0:40</td><td><b>Name the owners.</b> For each of the five: one name, one change to Monday, one way the team will see it worked. Write them on the sheet. If a card can't get an owner, it goes back — it isn't this month's move.</td></tr>
+      <tr><td class="t">0:52</td><td><b>Two commitments each.</b> Every person writes one move they will run this week and one brief they will save. Read them in thirty seconds each, or not at all.</td></tr>
+      <tr><td class="t">0:58</td><td><b>Set the revisit.</b> A calendar date, six weeks out, same room. The five cards come back then. Corners move; the check stays.</td></tr>
+    </table>
+  </div>
+
+  <div class="debrief">
+    <div><h3>If the room is quiet</h3><p>Ask: "which pile was biggest?" Then: "what does it mean that we all already do some of this unmanaged?" Let the piles make the argument.</p></div>
+    <div><h3>If the room is sceptical</h3><p>Run card 06 (check from outside the tool) as the worked example. Sceptics make the best checkers; give them that job by name.</p></div>
+    <div><h3>The one rule</h3><p>Nobody leaves without a name on a card. The deck is not the output; the owners are.</p></div>
+  </div>
+  <div class="foot"><span>Direct it. Don't delegate. Never surrender.</span><span>Free to print and share · not for resale</span></div>
+</div>
+</body>
+</html>
