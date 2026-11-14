@@ -3,7 +3,17 @@
 Fifty cards for using and delivering AI with judgement, distilled from the Human
 Edge masterclass and companion book. Free product: no gate, no capture.
 
+**Live:** https://michael-borck.github.io/judgement-deck/
+**Repo:** https://github.com/michael-borck/judgement-deck
+
 **Direct it. Don't delegate. Never surrender.**
+
+## Art
+
+`assets/art/` holds the brass-lamp noir identity — cover, deck back and promo
+banner, generated with limn (SwarmUI, juggernautXL_v9). Prompts and the locked
+style prefix are in `assets/art/README.md` and the `.png.json` sidecars. Card
+faces stay typographic by design.
 
 ## deck/
 
@@ -16,6 +26,11 @@ Edge masterclass and companion book. Free product: no gate, no capture.
 | `judgement-desk-card.html` | One A4 pin-up: the whole deck in four panels. Print at 100%, heavier stock if available. |
 | `judgement-deck-guide.html` | One-page diagnostic: run one piece of real work past five checks; the "not yet"s name your cards. |
 | `fonts/` | Domine, Funnel Sans, Nanum Gothic Coding (SIL OFL), copied from the course assets. |
+
+The deck lives at `Projects/decks/judgement-deck` as its own git repo, mirrored
+at github.com/michael-borck/judgement-deck. Landing page is the repo-root
+`index.html`, served by GitHub Pages. The other decks (`spark-deck` so far) sit
+beside it under `Projects/decks/`; the plan is `Projects/decks/DECKS-PLAN.md`.
 
 ## The pairing
 
