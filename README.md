@@ -1,5 +1,9 @@
 # The Judgement Deck
 
+<p align="center">
+  <img src="assets/art/banner.png" alt="The Judgement Deck" width="720">
+</p>
+
 Fifty cards for using and delivering AI with judgement, distilled from the Human
 Edge masterclass and companion book. Free product: no gate, no capture.
 
@@ -29,8 +33,8 @@ faces stay typographic by design.
 
 The deck lives at `Projects/decks/judgement-deck` as its own git repo, mirrored
 at github.com/michael-borck/judgement-deck. Landing page is the repo-root
-`index.html`, served by GitHub Pages. The other decks (`spark-deck` so far) sit
-beside it under `Projects/decks/`; the plan is `Projects/decks/DECKS-PLAN.md`.
+`index.html`, served by GitHub Pages. The other decks sit beside it under
+`Projects/decks/`; the plan is `Projects/decks/DECKS-PLAN.md`.
 
 ## The pairing
 
